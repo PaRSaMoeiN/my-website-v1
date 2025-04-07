@@ -1,0 +1,1131 @@
+@font-face {
+    font-family: IRANSans;
+    src: url("iransansxregular.ttf")
+}
+@font-face {
+    font-family: PD-sans;
+    src: url("Product-Sans-Regular.ttf")
+}
+
+/* ظرف نوار پیشرفت */
+#progress-container {
+    position: sticky;
+    /* موقعیت ثابت */
+    top: 0px;
+    width: 100%;
+    height: 4.5px;
+    /* افزایش ارتفاع برای نمایش درصد */
+    background-color: transparent;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+/* نوار پیشرفت */
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    /* مقدار اولیه */
+    background-color: #fff;
+    transition: width 0.05s ease;
+    /* انیمیشن تغییر عرض *
+    /* گوشه‌های گرد */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 3px;
+    font-weight: bold;
+}
+
+
+@keyframes move-up-down {
+    0% {
+        transform: translateY(-3px);
+    }
+    100% {
+        transform: translateY(3px);
+    }
+}
+
+#goToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    /* به صورت پیش‌فرض مخفی باشد */
+    transition: all 0.3s ease, visibility 0.3s ease;
+    box-shadow: 0 2px 0px rgba(140, 140, 140);
+    z-index: 100000;
+
+    background: rgba(0, 0, 0, 0.70);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+ 
+#goToTop:hover svg {
+    animation: move-up-down .8s ease-in-out infinite alternate;
+}
+
+#goToTop:hover {
+    transform: scale(1.12);
+    background: rgba(0, 0, 0, 0.50);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.goToTop {
+    width: 30px;
+    height: 30px;
+}
+*::selection {
+    background-color: #303030;
+    color: #fff;
+    font-family: IRANSans, PD-sans;
+}
+
+a, button , div {
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'IRANSans', 'PD-sans';
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    direction: rtl;
+    text-align: right;
+    background-color: #fff;
+    color: #333;
+
+}
+/* تنظیمات کلی هدر */
+header {
+    color: #fff;
+    padding: 0rem 0rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    /*   border-radius: 0px 0px 35px 35px;*/
+    /*    margin: 0px 5px;*/
+    align-items: center;
+    transition: all .3s;
+    padding-bottom: 5px;
+    /*اگر حذف شود منو خراب میشود*/
+
+    background: rgba(0, 0, 0, 0.70);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/*برای حذف شدن هدر موقع اسکرول که حذف شده*/
+/*header.hidden{
+    transform: translateY(-110%);*/
+
+
+
+
+
+}
+
+.welcome {
+margin: 0px 10px;
+}
+
+/* چیدمان محتوا داخل هدر */
+.header-content {
+display: flex;
+justify-content: space-between;
+align-items: center;
+transition: all .3s ease-in-out;
+}
+
+/* لوگو */
+.logo img {
+max-width: 50px;
+height: auto;
+margin-left: 25px;
+margin-top: 0px;
+width: 25px;
+border-radius: 0px;
+}
+
+/* تایتل */
+
+.title {
+margin-right: 0;
+margin-top: 10px;
+font-size: 18px;
+font-family: PD-sans;
+font-weight: bold;
+line-height: 0px;
+}
+
+@media (max-width: 768px) {
+.title {
+margin-top: 10px;
+font-size: 18px;
+font-family: PD-sans;
+font-weight: bold;
+margin-right: 70px;
+color: #fff;
+}
+}
+
+.contact-header {
+font-weight: bold;
+transition: all 0.3s ease-in-out;
+}
+
+/* دکمه منو همبرگری */
+.menu-toggle {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+margin-right: 5px;
+margin-top: 5px;
+}
+
+.menu-toggle span {
+display: block;
+width: 25px;
+height: 2px;
+background-color: #fff;
+margin: 5px 0;
+transition: all 0.25s ease-in-out;
+border-radius: 25px;
+}
+
+.menu-toggle span:nth-child(1) {
+width: 25px;
+}
+
+.menu-toggle span:nth-child(2) {
+width: 20px;
+}
+
+.menu-toggle span:nth-child(3) {
+width: 15px;
+}
+
+
+
+.line-betwen {
+
+height: 2.5px;
+width: 100%;
+background-color: #fff;
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+
+
+@media (max-width: 768px) {
+
+.line-betwen {
+display: none;
+}
+}
+
+/* منو */
+nav ul {
+list-style: none;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+margin: 0px;
+padding-top: 15px !important;
+border-radius: 20px;
+padding-bottom: 25px;
+}
+
+nav ul li {
+margin: 0 15px;
+
+}
+
+nav ul li a {
+color: #fff;
+text-decoration: none;
+font-weight: bold;
+font-size: 1.2rem;
+padding: 10px 15px;
+border-radius: 15px;
+transition: all 0.3s ease-in-out;
+margin: 10px 5px;
+
+}
+
+
+nav ul {
+list-style: none;
+display: flex;
+justify-content: space-betwen;
+align-items: cneter;
+padding: 0;
+margin: 0;
+}
+
+nav ul li {
+margin: 0px 15px;
+/* افزایش فاصله بین منوها */
+margin-bottom: 10px;
+}
+
+nav ul li a {
+color: #fff;
+text-decoration: none;
+font-weight: bold;
+font-size: 1.2rem;
+/* افزایش سایز متن */
+padding: 10px 20px;
+/* افزایش فضای درونی برای دکمه‌ها */
+border-radius: 15px;
+transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+background: #fff;
+color: #000;
+text-decoration: none;
+box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.ul-brs {
+display: none;
+}
+
+/* استایل منو برای موبایل */
+@media (max-width: 768px) {
+nav ul {
+flex-direction: column;
+background: transparent;
+position: relative;
+width: 98%;
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.5s ease-in-out;
+padding-top: 0px!important;
+margin: 0 auto;
+z-index: 1000000;
+}
+
+.ul-brs {
+display: block;
+}
+
+nav ul.show {
+max-height: 100vh;
+}
+
+
+/* زمانی که کلاس show به nav ul اضافه می‌شود، دکمه #goToTop مخفی می‌شود */
+nav ul.show ~ #goToTop {
+    display: none !important; /* دکمه را زمانی که nav ul.show فعال است، مخفی می‌کند */
+}
+
+
+nav ul.open {
+max-width: 0px;
+}
+
+nav ul li {
+margin: 10px 5px;
+width: 100%;
+}
+
+nav ul li a {
+display: block;
+text-align: center;
+}
+
+.line-betwen {
+display: none;
+}
+/* تغییر شکل دکمه همبرگر */
+.menu-toggle.open span:nth-child(1) {
+transform: rotate(45deg);
+position: relative;
+top: 6.56px;
+}
+
+.menu-toggle.open span:nth-child(2) {
+opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+transform: rotate(-45deg);
+position: relative;
+top: -6.56px;
+width: 25px;
+}
+}
+
+.menu-toggle {
+display: none;
+position: absolute;
+top: 1px;
+right: 20px;
+background: transparent;
+color: #000;
+font-size: 1.5rem;
+padding: 6px 6px;
+border-radius: 50%;
+cursor: pointer;
+z-index: 1001;
+transition: all 0.3s ease-in-out;
+margin-bottom: 0px!important;
+}
+
+
+.menu-toggle:hover span:nth-child(1) {
+width: 30px;
+}
+
+.menu-toggle:hover span:nth-child(2) {
+width: 25px;
+}
+
+.menu-toggle:hover span:nth-child(3) {
+width: 20px;
+}
+
+.menu-toggle.open:hover span:nth-child(1) {
+width: 25px;
+}
+
+
+.menu-toggle.open:hover span:nth-child(3) {
+width: 25px;
+}
+
+@media (max-width: 768px) {
+form input, form textarea, form button {
+width: 100%!important;
+}
+
+.menu-toggle {
+display: block;
+}
+}
+
+section {
+padding: 5px 10%;
+margin-bottom: 2rem;
+border-radius: 0px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+section#home {
+display: flex;
+justify-content: center;
+align-items: center;
+background: #f0f0f0;
+text-align: center;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+height: 100vh;
+text-align: center;
+flex-direction: column;
+font-size: 17px;
+font-weight: bolder;
+}
+
+.service-card {
+background: #f1f1f1;
+padding: 30px;
+border-radius: 50px;
+margin: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cards1 {
+display: flex;
+flex-direction: column!important;
+}
+
+
+}
+
+
+section#about, section#contact, section#services, section#learning {
+background: #fff;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+section h1, section h2 {
+color: #000;
+}
+
+.cards1 {
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+}
+
+.service-card {
+background: #f1f1f1;
+padding: 50px;
+border-radius: 25px;
+margin: 15px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+text-align: center;
+transition: all .5s ease, box-shadow 0.3s ease;
+
+}
+
+.service-card:hover {
+transform: translateY(-7px);
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+border-color: #f1f1f1;
+border-radius: 80px;
+}
+
+.service-card h3 {
+color: #000;
+margin-bottom: 10px;
+}
+
+.service-card p {
+color: #555;
+}
+
+form input, form textarea, form button {
+display: block;
+width: 300px;
+margin-bottom: 1rem;
+padding: 0.8rem;
+font-size: 1rem;
+border-radius: 35px;
+border: 1px solid #ddd;
+font-family: IRANSans;
+box-shadow: 0 3px 0px rgba(0, 0, 0, 0.2);
+border: 1px solid #cecece;
+}
+
+form button {
+background: #000;
+color: #fff;
+border: none;
+cursor: pointer;
+font-size: 1rem;
+transition: background 0.3s ease;
+transition: all 0.3s ease-in-out;
+box-shadow: 0 4px 0px rgba(0, 0, 0, 0.4);
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0px!important;
+}
+
+
+form button:hover {
+background: #282828;
+box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
+transform: translateY(5px);
+}
+
+.contact-info {
+font-size: 1.1rem;
+color: #555;
+display: flex;
+align-items: center;
+justify-content: center;
+background: #111;
+margin: 0px
+padding-top: 35px;
+}
+
+.contact-info svg {
+font-size: 1.2rem;
+background-color: #555555;
+border-radius: 50%;
+padding: 3px;
+margin: 3px;
+width: 25px;
+height: 25px;
+transition: 0.3s all ease-in-out;
+}
+
+.contact-info svg:hover {
+width: 60px;
+border-radius: 30px;
+}
+
+.contact-info svg:hover svg {
+fill: #000;
+}
+
+.contact-info a {
+color: #000;
+/* رنگ لینک */
+text-decoration: none;
+/* حذف خط زیر لینک */
+font-weight: bold;
+/* متن پررنگ */
+transition: color 0.3s ease;
+font-family: PD-sans;
+}
+
+.contact-info a:hover {
+color: #383838;
+/* رنگ لینک در حالت هاور */
+}
+
+footer {
+margin: 0px;
+background: #111;
+padding-top: 20px;
+}
+
+footer p {
+background: #000;
+color: #555555;
+text-align: center;
+padding: 1rem 0;
+position: relative;
+bottom: 0!important;
+font-family: PD-sans, IRANSans;
+margin: 0px!important;
+}
+
+
+.footer-shorthand {
+width: 100%;
+margin: 0 auto;
+}
+
+
+
+.footer-shorthand .contact-info {
+margin-bottom: 15px;
+left: 0px!important;
+}
+
+.footer-shorthand ul {
+display: flex;
+justify-content: center;
+align-items: center;
+background: #111;
+margin: 0px!important;
+padding: 0px 0px;
+margin-top: 0px!important;
+
+}
+
+.footer-shorthand > h4 {
+margin-right: 20px!important;
+color: #888;
+margin-top: 20px;
+font-size: 19px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.footer-shorthand ul li {
+list-style: none;
+padding: 15px 15px;
+margin-bottom: 10px;
+margin-top: 0px;
+
+}
+
+.footer-shorthand ul li a {
+text-decoration: none;
+color: #555555;
+font-family: PD-sans, IRANSans;
+font-weight: 100px;
+padding: 8px 15px;
+border-radius: 10px;
+display: flex;
+align-items: center;
+}
+
+.footer-shorthand ul li a:hover {
+background: #fff;
+color: #000;
+text-decoration: none;
+box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+border-radius: 30px;
+transition: all .4s ease;
+}
+
+.footer-shorthand ul li a svg:hover {
+fill: #000;
+}
+
+@media (max-width: 768px) {
+.footer-shorthand ul {
+display: block;
+}
+.footer-shorthand ul li {
+margin-left: 0px;
+
+}
+.contact-info {
+flex-direction: row;
+}
+.footer-shorthand > h4 {
+display: block;
+}
+
+
+}
+
+.top {
+height: 35px;
+}
+
+label {
+display: flex;
+align-items: center;
+}
+
+.contact-info > h4 {
+display: center;
+justify-content: center;
+align-items: center;
+}
+
+.contact {
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0px;
+}
+
+
+
+.btn {
+display: block;
+width: 300px;
+margin-bottom: 1rem;
+padding: 0.8rem;
+font-size: 1rem;
+border-radius: 35px;
+border: 1px solid #ddd;
+font-family: IRANSans;
+box-shadow: 0 3px 0px rgba(0, 0, 0, 0.2);
+border: 1px solid #cecece;
+}
+
+.btn {
+background: #000;
+color: #fff;
+border: none;
+cursor: pointer;
+font-size: 1.1rem;
+transition: background 0.3s ease;
+transition: all 0.3s ease-in-out;
+box-shadow: 0 4px 0px rgba(0, 0, 0, 0.4);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.btn:hover {
+background: #282828;
+box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
+transform: translateY(5px);
+}
+
+
+
+.cards {
+max-width: 1100px;
+margin: 0 auto;
+text-align: center;
+padding: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.learning-title {
+font-size: 35px;
+text-transform: uppercase;
+letter-spacing: 1px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 80px;
+}
+
+.services {
+display: flex;
+align-items: center;
+}
+
+.content {
+display: flex;
+flex-wrap: wrap;
+flex: 1;
+margin: 10px;
+padding: 10px 10px;
+/*  border: 2px solid #000;*/
+border-radius: 10px;
+transition: all .3s ease;
+width: 100%;
+max-height: 450px;
+background: #f1f1f1;
+}
+
+.content svg {
+font-size: 70px;
+margin: 10px 0;
+width: 80px;
+height: 80px;
+box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.content > * {
+flex: 1 1 100%;
+}
+
+.content:hover {
+color: white;
+border-radius: 30px;
+/* transform: translateY(-9px); */
+box-shadow: 0 10px 13px rgba(0, 0, 0, 0.5);
+}
+
+
+.content svg {
+fill: #000;
+margin: 0px;
+}
+
+.content:hover svg {
+fill: #fff;
+}
+/*
+.content:hover a{
+  border-color: white;
+  background: white;
+}*/
+
+.content-1:hover {
+border-color: #ffa703ff;
+background: #ffa703ff;
+}
+
+.content-1:hover a {
+color: #ffa703ff;
+}
+
+.content-2:hover {
+border-color: #1DA1F2;
+background: #1DA1F2;
+}
+
+.content-2:hover a {
+color: #1DA1F2;
+}
+
+.content-3:hover {
+border-color: #00e139ff;
+background: #00e139ff;
+}
+
+.content-3:hover a {
+color: #00e139ff;
+}
+
+.content h2 {
+font-size: 26px;
+margin: 10px 0;
+letter-spacing: 1px;
+text-transform: uppercase;
+transition: all .1s ease-in-out;
+}
+
+.content p {
+font-size: 17px;
+font-family: 'PD-sans' IRANSans;
+margin: 0px;
+}
+
+.content:hover h2 {
+color: #fff;
+
+}
+
+.content a {
+margin: 10px 0;
+background: black;
+color: #f1f1f1;
+text-decoration: none;
+text-transform: uppercase;
+/*  border: 1px solid black;*/
+padding: 15px 0;
+border-radius: 30px;
+transition: .3s ease;
+}
+
+.content a:hover {
+/*8 border-radius: 8px;*/
+}
+
+@media (max-width: 768px) {
+.services {
+display: flex;
+flex-direction: column;
+}
+
+}
+
+
+.ripple-button {
+position: relative;
+border: none;
+cursor: pointer;
+outline: none;
+overflow: hidden;
+margin: 10px;
+}
+
+.ripple-button .ripple {
+position: absolute;
+width: 10px;
+height: 10px;
+background: rgba(255, 255, 255, 0.3);
+border-radius: 50%;
+transform: scale(0);
+animation: ripple 0.5s linear;
+pointer-events: none;
+filter: blur(.px);
+}
+
+@keyframes ripple {
+to {
+transform: scale(50);
+opacity: 0;
+}
+}
+
+
+.card-button {
+border-radius: 35px;
+font-family: IRANSans;
+width: 250px;
+background: #000;
+color: #fff;
+border: none;
+cursor: pointer;
+font-size: 1.1rem;
+transition: all 0.3s ease-in-out;
+box-shadow: 0 4px 0px rgba(0, 0, 0, 0.4);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.card-button:hover {
+background: #282828;
+box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
+transform: translateY(5px);
+}
+
+/* The switch - the box around the slider */
+.switch {
+position: relative;
+display: inline-block;
+width: 76px;
+height: 40px;
+margin: 10px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+/*
+.switch:hover .slider:before{
+    transform: scale(1.1);
+}*/
+
+
+/* The slider */
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+-webkit-transition: .3s ease-in-out;
+transition: .3s ease-in-out;
+}
+
+.theme:before {
+content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%235f6368'%3E%3Cpath d='M480-358.08q50.81 0 86.46-35.55 35.66-35.56 35.66-86.37t-35.66-86.46q-35.65-35.66-86.46-35.66-50.81 0-86.37 35.66-35.55 35.65-35.55 86.46 0 50.81 35.55 86.37 35.56 35.55 86.37 35.55Zm0 55.96q-74.11 0-126-51.88-51.88-51.89-51.88-126T354-606.1q51.89-51.98 126-51.98t126.1 51.98q51.98 51.99 51.98 126.1 0 74.11-51.98 126-51.99 51.88-126.1 51.88Zm-400-150q-11.63 0-19.76-8.12-8.12-8.13-8.12-19.77 0-11.64 8.12-19.85 8.13-8.22 19.76-8.22h90q11.64 0 19.86 8.23 8.22 8.22 8.22 19.86 0 11.64-8.22 19.76-8.22 8.11-19.86 8.11H80Zm710 0q-11.64 0-19.76-8.12-8.12-8.13-8.12-19.77 0-11.64 8.12-19.85 8.12-8.22 19.76-8.22h90q11.63 0 19.86 8.23 8.22 8.22 8.22 19.86 0 11.64-8.22 19.76-8.23 8.11-19.86 8.11h-90Zm-310.01-310q-11.64 0-19.76-8.12-8.11-8.12-8.11-19.76v-90q0-11.63 8.12-19.86 8.13-8.22 19.77-8.22 11.64 0 19.85 8.22 8.22 8.23 8.22 19.86v90q0 11.64-8.23 19.76-8.22 8.12-19.86 8.12Zm0 710q-11.64 0-19.76-8.12-8.11-8.13-8.11-19.76v-90q0-11.64 8.12-19.86 8.13-8.22 19.77-8.22 11.64 0 19.85 8.22 8.22 8.22 8.22 19.86v90q0 11.63-8.23 19.76-8.22 8.12-19.86 8.12ZM241.54-680l-50.31-48.92q-8.61-7.81-8.21-19.27.4-11.46 8.64-20.27 8.19-8.81 19.71-8.96 11.51-.16 19.71 8.46l49.3 49.92q8.5 8.81 8.5 19.96 0 11.16-8.3 19.77-8 8.81-19.21 8.16-11.22-.66-19.83-8.85Zm487.38 488.77-49.3-49.92q-8.2-8.62-8.35-19.83-.15-11.21 8.35-19.9 7.61-8.62 18.92-7.97 11.31.66 20.11 8.85l50.31 48.92q8.42 7.81 8.02 19.27-.4 11.46-8.64 20.27-8.19 8.81-19.71 8.96-11.51.16-19.71-8.65Zm-49.61-488.19q-8.81-8-8.16-19.21.66-11.22 8.85-20.02l48.92-50.31q7.81-8.42 19.27-8.02 11.46.4 20.27 8.64 8.81 8.19 8.96 19.71.16 11.51-8.46 19.71l-49.92 49.3q-8.81 8.5-19.96 8.5-11.16 0-19.77-8.3ZM191.54-191.46q-8.81-8.39-8.96-19.91-.16-11.51 8.65-19.71l49.92-49.3q8.62-8.2 19.83-8.35 11.21-.15 19.9 8.35 8.43 7.61 7.68 18.92-.75 11.31-8.56 19.92l-48.92 50.31q-8.2 8.81-19.46 8.34-11.27-.46-20.08-8.57ZM480-480Z'/%3E%3C/svg%3E");
+}
+
+.lang:before {
+content: 'فا';
+}
+
+.lang:before {
+color: #5f6368;
+}
+
+.slider:before {
+position: absolute;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 32px;
+width: 32px;
+left: 4px;
+bottom: 4px;
+background-color: white;
+-webkit-transition: .3s;
+transition: .3s ease-in-out;
+}
+
+input:checked + .slider {
+background-color: #121212;
+
+}
+
+input:focus + .slider {
+box-shadow: 0 0 1px #
+}
+
+input:checked + .lang:before {
+content: 'EN';
+font-family: 'PD-sans';
+}
+
+input:checked + .theme:before {
+content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%235f6368'%3E%3Cpath d='M481.15-142.12q-141.03 0-239.46-98.42-98.42-98.42-98.42-239.46 0-115.46 72.46-208.04 72.46-92.57 190.34-119.19 14.24-3.15 24-.19 9.77 2.96 15.37 10.67t5.46 19.42q-.13 11.72-7.02 25.06-10.27 21.23-15.46 44.12-5.19 22.89-5.19 48.15 0 99.14 69.39 168.53 69.4 69.39 168.53 69.39 28.33 0 53.03-6.41 24.69-6.42 44.63-14.62 12.77-5.62 23.27-5.46 10.5.15 17.32 4.96 7.37 5 10.14 13.79 2.77 8.79 0 21.82-22.62 113.96-115.35 189.92-92.73 75.96-213.04 75.96Zm.16-55.96q88.65 0 159.46-49.86 70.81-49.87 103.61-129.98-21.14 5.45-42.18 8.63-21.05 3.17-40.91 3.17-122.18 0-208.1-85.92-85.92-85.92-85.92-208.09 0-19.87 3.18-40.91 3.17-21.05 8.63-42.19-80.12 32.81-129.98 103.57-49.87 70.77-49.87 159.73 0 116.77 82.61 199.31t199.47 82.54Zm-9.35-272.73Z'/%3E%3C/svg%3E");
+}
+
+input:checked + .slider:before {
+-webkit-transform: translateX(36px);
+-ms-transform: translateX(36px);
+transform: translateX(36px);
+
+
+}
+
+/* Rounded sliders */
+.slider.round {
+border-radius: 35px;
+}
+
+.slider.round:before {
+border-radius: 50%;
+}
+.toggle-switch {
+display: flex;
+justify-content: center;
+}
+
+
+/*search*/
+
+
+.search-container {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right: 75px!important;
+background: transparent;
+border-radius: 35px;
+padding: 0px 0px;
+transition: .3s ease-in-out;
+margin: 5px 0px;
+}
+.search-icon svg {
+width: 26px;
+height: 26px;
+background: transparent;
+border-radius: 50%;
+padding: 4.5px;
+transition: .3s ease-in-out;
+fill: #fff;
+}
+
+
+
+.search-input {
+display: block;
+width: 0px;
+padding: 0px;
+}
+
+
+.search-input {
+border: none;
+outline: none;
+border-radius: 30px;
+font-family: IRANSans , 'PD-sans';
+transition: .3s ease-in-out;
+background: transparent;
+padding: 4px;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+appearance: none;
+width: 20px;
+height: 20px;
+background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="%235f6368"><path d="M480-427 285.5-232.5q-11 11-26.5 10.75T232.5-233q-10.5-11-10.25-26.25T233-285l194-195-194-195q-10.5-10.5-10.5-25.75T233-727q10.5-11 26-11.25t26.5 10.75L480-533l194.5-194.5q11-11 26.5-10.75T727.5-727q10.5 11 10.25 26.25T727-675L533-480l194 195q10.5 10.5 10.5 25.75T727-233q-10.5 11-26 11.25t-26.5-10.75L480-427Z"/></svg>') no-repeat center center;
+background-size: contain;
+cursor: pointer;
+}
+
+/* حالت فعال با انیمیشن بهتر */
+.search-container.active .search-input {
+width: 190px;
+opacity: 1;
+transform: scaleX(1);
+}
+
+.search-container.active .search-icon {
+transition: transform 0.5s ease-in-out;
+}
+
+.search-container.active .search-icon svg {
+background: #fff;
+fill: #5f6368;
+}
+
+.search-container.active {
+background: #fff9;
+}
+
+@media (max-width: 768px) {
+
+    .search-container.active ~ .contact-header {
+    display: none;
+    visibility: hidden;
+    max-width: 0; 
+    }
+}
+
+.search-container.active ~ .contact-header {
+    margin-left: 180px;
+}
