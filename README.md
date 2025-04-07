@@ -1,4 +1,4 @@
 # my-website-v1
 second change complete ✅
-firt full version 
+first full version 
 it has some bugs
